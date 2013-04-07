@@ -56,6 +56,15 @@
 	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
+	
+	<bean id="userDao" class="com.inno.springsec.dao.impl.UserDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="roleDao" class="com.inno.springsec.dao.impl.RoleDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<!--
 	<context:annotation-config/>
+	-->
 	<tx:annotation-driven transaction-manager="transactionManager" />
 </beans>
