@@ -1,4 +1,4 @@
-package com.jeecms.common.util;
+package com.inno.springsec.common.util;
 
 import java.util.regex.Pattern;
 

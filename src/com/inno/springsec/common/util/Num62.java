@@ -1,4 +1,4 @@
-package com.jeecms.common.util;
+package com.inno.springsec.common.util;
 
 /**
  * 62进制数字

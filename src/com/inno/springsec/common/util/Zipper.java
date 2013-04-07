@@ -1,4 +1,4 @@
-package com.jeecms.common.util;
+package com.inno.springsec.common.util;
 
 import java.io.File;
 import java.io.FileInputStream;
