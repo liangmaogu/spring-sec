@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.inno.springsec.model">
+    <class name="Roles" table="roles">
+
+        <id name="id" column="id" type="java.lang.Integer">
+            <generator class="increment"/>
+        </id>
+		
+		
+		
+		<property 
+			name="name" 
+			column="name" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="20"/>
+		
+		<!-- One-To-Many attributes -->
+		
+		<set name="usersRoless"
+		     lazy="true"
+		     inverse="true"
+		     cascade="none"
+		>
+			<key>
+	       		<column name="role_id"/>
+	        </key>
+			<one-to-many class="com.inno.springsec.model.UsersRoles"/>
+		</set> 
+		
+		<set name="rolesAuthoritiess"
+		     lazy="true"
+		     inverse="true"
+		     cascade="none"
+		>
+			<key>
+	       		<column name="role_id"/>
+	        </key>
+			<one-to-many class="com.inno.springsec.model.RolesAuthorities"/>
+		</set> 
+
+		<!-- Many-To-One attributes -->
+
+    </class>
+</hibernate-mapping>
+

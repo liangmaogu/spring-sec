@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.inno.springsec.model">
+    <class name="RolesAuthorities" table="roles_authorities">
+
+		
+        <composite-id>
+        	<key-property name="roleId" type="java.lang.Integer" column="role_id"/>
+        	<key-property name="authorityId" type="java.lang.Integer" column="authority_id"/>
+        </composite-id>
+		
+		
+		<!-- One-To-Many attributes -->
+
+		<!-- Many-To-One attributes -->
+		
+		<many-to-one
+			name="authorities"
+            not-null="false"
+	        update="false"
+	        insert="false"
+			cascade="none"
+		>	
+       		<column name="authority_id"/>
+		</many-to-one> 
+		
+		<many-to-one
+			name="roles"
+            not-null="false"
+	        update="false"
+	        insert="false"
+			cascade="none"
+		>	
+       		<column name="role_id"/>
+		</many-to-one> 
+
+    </class>
+</hibernate-mapping>
+

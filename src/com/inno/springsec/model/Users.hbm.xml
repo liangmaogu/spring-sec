@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.inno.springsec.model">
+    <class name="Users" table="users">
+
+        <id name="id" column="id" type="java.lang.Integer">
+            <generator class="increment"/>
+        </id>
+		
+		
+		
+		<property 
+			name="loginName" 
+			column="login_name" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="20"/>
+		
+		<property 
+			name="password" 
+			column="password" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="20"/>
+		
+		<property 
+			name="name" 
+			column="name" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="20"/>
+		
+		<property 
+			name="email" 
+			column="email" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="30"/>
+		
+		<!-- One-To-Many attributes -->
+		
+		<set name="usersRoless"
+		     lazy="true"
+		     inverse="true"
+		     cascade="none"
+		>
+			<key>
+	       		<column name="user_id"/>
+	        </key>
+			<one-to-many class="com.inno.springsec.model.UsersRoles"/>
+		</set> 
+
+		<!-- Many-To-One attributes -->
+
+    </class>
+</hibernate-mapping>
+
