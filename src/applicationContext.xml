@@ -63,6 +63,14 @@
 	<bean id="roleDao" class="com.inno.springsec.dao.impl.RoleDao">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
+	
+	<bean id="userService" class="com.inno.springsec.service.impl.UserService">
+		<property name="userDao" ref="userDao" />
+	</bean>
+	
+	<bean id="myUserDetailsService" class="com.inno.springsec.security.MyUserDetailService">
+		<property name="userService" ref="userService" />
+	</bean>
 	<!--
 	<context:annotation-config/>
 	-->
